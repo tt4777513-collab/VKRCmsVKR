@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMS Pro - Профессиональная система управления контентом</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header/Navigation -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <span class="logo-text">CMS<span class="logo-accent">PRO</span></span>
+      </div>
+      <nav class="navbar">
+        <a href="#features" class="nav-link">ВОЗМОЖНОСТИ</a>
+        <a href="#pricing" class="nav-link">ЦЕНЫ</a>
+        <a href="#docs" class="nav-link">ДОКУМЕНТАЦИЯ</a>
+        <a href="#support" class="nav-link">ПОДДЕРЖКА</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" title="Переключить тему">🌙</button>
+      <button class="order-btn">НАЧАТЬ БЕСПЛАТНО</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-badge">✓ УПРАВЛЯЙ КОНТЕНТОМ ЛЕГКО И БЫСТРО</p>
+        <h1 class="hero-title">
+          <span class="word">СОЗДАВАЙ.</span><br>
+          <span class="word">ПУБЛИКУЙ.</span><br>
+          <span class="word accent">УПРАВЛЯЙ.</span>
+        </h1>
+        <p class="hero-subtitle">Мощная система управления • 10,000+ активных пользователей • 99.9% uptime</p>
+        <div class="hero-buttons">
+          <button class="btn btn-primary">НАЧАТЬ РАБОТУ</button>
+          <button class="btn btn-secondary">ПОСМОТРЕТЬ ДЕМО</button>
+        </div>
+      </div>
+      <div class="hero-illustration">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <!-- Dashboard visualization -->
+          <g id="dashboard">
+            <!-- Main rectangle -->
+            <rect x="50" y="50" width="300" height="200" fill="#1a1a2e" stroke="#3b82f6" stroke-width="2" rx="10"/>
+            <!-- Header bar -->
+            <rect x="50" y="50" width="300" height="40" fill="#3b82f6" rx="10"/>
+            <text x="210" y="75" font-size="14" font-weight="bold" fill="white" text-anchor="middle">CMS Dashboard</text>
+            <!-- Content blocks -->
+            <rect x="65" y="105" width="85" height="60" fill="#2a2a4e" stroke="#3b82f6" stroke-width="1.5" rx="5"/>
+            <rect x="160" y="105" width="85" height="60" fill="#2a2a4e" stroke="#3b82f6" stroke-width="1.5" rx="5"/>
+            <rect x="255" y="105" width="80" height="60" fill="#2a2a4e" stroke="#3b82f6" stroke-width="1.5" rx="5"/>
+            <!-- Charts circles -->
+            <circle cx="107" cy="140" r="12" fill="#3b82f6" opacity="0.3"/>
+            <circle cx="202" cy="140" r="12" fill="#3b82f6" opacity="0.3"/>
+            <circle cx="295" cy="140" r="12" fill="#3b82f6" opacity="0.3"/>
+            <!-- Stats text -->
+            <text x="107" y="195" font-size="11" fill="#3b82f6" text-anchor="middle">Pages</text>
+            <text x="202" y="195" font-size="11" fill="#3b82f6" text-anchor="middle">Users</text>
+            <text x="295" y="195" font-size="11" fill="#3b82f6" text-anchor="middle">Files</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="hero-line"></div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="features-container">
+      <h2 class="section-title">Мощные возможности</h2>
+      <p class="section-subtitle">Всё что нужно для управления вашим контентом</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3>Редактор контента</h3>
+          <p>Интуитивный редактор с поддержкой HTML, Markdown и визуального редактирования</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h3>Управление пользователями</h3>
+          <p>Полная система ролей и прав доступа для всей вашей команды</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🖼️</div>
+          <h3>Медиа библиотека</h3>
+          <p>Загружайте, организуйте и управляйте всеми вашими изображениями и файлами</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Аналитика</h3>
+          <p>Следите за активностью и статистикой в реальном времени</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔐</div>
+          <h3>Безопасность</h3>
+          <p>Защита от взломов и регулярное резервное копирование данных</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚙️</div>
+          <h3>Гибкая настройка</h3>
+          <p>Подстраивайте систему под ваши нужды с расширениями и плагинами</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing" id="pricing">
+    <div class="pricing-container">
+      <h2 class="section-title">Прозрачное ценообразование</h2>
+      <p class="section-subtitle">Выберите план, подходящий для вас</p>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Стартап</h3>
+          <div class="price">$9<span>/месяц</span></div>
+          <ul class="features-list">
+            <li>✓ До 5 пользователей</li>
+            <li>✓ 10 GB хранилище</li>
+            <li>✓ Email поддержка</li>
+            <li>✓ Базовые плагины</li>
+          </ul>
+          <button class="btn btn-secondary">Выбрать</button>
+        </div>
+        <div class="pricing-card featured">
+          <div class="badge">Популярно</div>
+          <h3>Профессиональный</h3>
+          <div class="price">$29<span>/месяц</span></div>
+          <ul class="features-list">
+            <li>✓ До 50 пользователей</li>
+            <li>✓ 100 GB хранилище</li>
+            <li>✓ Приоритетная поддержка</li>
+            <li>✓ Все плагины</li>
+            <li>✓ Аналитика</li>
+          </ul>
+          <button class="btn btn-primary">Выбрать</button>
+        </div>
+        <div class="pricing-card">
+          <h3>Корпоративный</h3>
+          <div class="price">$99<span>/месяц</span></div>
+          <ul class="features-list">
+            <li>✓ Неограниченные пользователи</li>
+            <li>✓ Неограниченное хранилище</li>
+            <li>✓ 24/7 поддержка</li>
+            <li>✓ Все возможности</li>
+            <li>✓ Выделенный менеджер</li>
+          </ul>
+          <button class="btn btn-secondary">Контакт</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="cta-content">
+      <h2>Готовы начать?</h2>
+      <p>Присоединитесь к тысячам довольных пользователей CMS Pro</p>
+      <button class="btn btn-primary btn-large">НАЧАТЬ БЕСПЛАТНЫЙ ПЕРИОД</button>
+    </div>
+  </section>
+
+  <!-- Auth Modal -->
+  <div id="authModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <button class="auth-modal-close">&times;</button>
+
+      <div id="selectedPlanInfo" class="selected-plan-info" style="display: none;">
+        <i class="selected-plan-icon">✓</i>
+        <div>
+          <span class="selected-plan-label">Выбранный план</span>
+          <strong id="selectedPlanName" class="selected-plan-name"></strong>
+        </div>
+      </div>
+
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" data-tab="login">Вход</button>
+        <button class="auth-tab-btn" data-tab="register">Регистрация</button>
+      </div>
+
+      <!-- Login Tab -->
+      <div id="login" class="auth-tab-content active">
+        <h2>Вход в аккаунт</h2>
+        <form class="auth-form" id="loginForm">
+          <div class="form-group">
+            <label for="loginEmail">Email (минимум 10 символов)</label>
+            <input type="email" id="loginEmail" name="email" required placeholder="example@mail.com" minlength="10">
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Пароль</label>
+            <input type="password" id="loginPassword" name="password" required placeholder="Минимум 10 символов">
+          </div>
+          <div class="form-group checkbox">
+            <input type="checkbox" id="rememberMe" name="remember">
+            <label for="rememberMe">Запомнить меня</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Войти</button>
+          <p class="form-footer">Забыли пароль? <a href="#">Восстановить</a></p>
+        </form>
+      </div>
+
+      <!-- Register Tab -->
+      <div id="register" class="auth-tab-content">
+        <h2>Создать аккаунт</h2>
+        <form class="auth-form" id="registerForm">
+          <div class="form-group">
+            <label for="registerName">Имя</label>
+            <input type="text" id="registerName" name="name" required placeholder="Ваше имя">
+          </div>
+          <div class="form-group">
+            <label for="registerEmail">Email (минимум 10 символов)</label>
+            <input type="email" id="registerEmail" name="email" required placeholder="example@mail.com" minlength="10">
+          </div>
+          <div class="form-group">
+            <label for="registerPassword">Пароль (минимум 10 символов)</label>
+            <input type="password" id="registerPassword" name="password" required placeholder="Минимум 10 символов" minlength="10">
+          </div>
+          <div class="form-group">
+            <label for="registerPasswordConfirm">Подтверждение пароля</label>
+            <input type="password" id="registerPasswordConfirm" name="confirmPassword" required placeholder="Повторите пароль" minlength="10">
+          </div>
+          <div class="form-group checkbox">
+            <input type="checkbox" id="agreeTerms" name="agree" required>
+            <label for="agreeTerms">Я согласен с <a href="#">условиями использования</a></label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Создать аккаунт</button>
+          <p class="form-footer">Уже есть аккаунт? <a href="#" class="switch-tab" data-tab="login">Войти</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>CMS Pro</h4>
+        <p>Профессиональная система управления контентом</p>
+      </div>
+      <div class="footer-section">
+        <h4>Продукт</h4>
+        <ul>
+          <li><a href="#features">Возможности</a></li>
+          <li><a href="#pricing">Цены</a></li>
+          <li><a href="#docs">Документация</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Компания</h4>
+        <ul>
+          <li><a href="#">О нас</a></li>
+          <li><a href="#">Блог</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Контакты</h4>
+        <p>Email: <a href="mailto:support@cmspro.ru">support@cmspro.ru</a></p>
+        <p>Телефон: +7 (800) 123-45-67</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 CMS Pro. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

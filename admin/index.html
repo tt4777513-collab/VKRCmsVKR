@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMS Pro - Административная панель</title>
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-admin">
+          <span class="logo-admin-text">CMS<span class="logo-admin-accent">PRO</span></span>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#dashboard" class="nav-item active" data-module="dashboard">
+          <i class="fas fa-chart-line"></i>
+          <span>Главная</span>
+        </a>
+        <a href="#pages" class="nav-item" data-module="pages">
+          <i class="fas fa-file-alt"></i>
+          <span>Страницы</span>
+        </a>
+        <a href="#content" class="nav-item" data-module="content">
+          <i class="fas fa-pencil-alt"></i>
+          <span>Содержание</span>
+        </a>
+        <a href="#media" class="nav-item" data-module="media">
+          <i class="fas fa-images"></i>
+          <span>Медиа</span>
+        </a>
+        <a href="#users" class="nav-item" data-module="users">
+          <i class="fas fa-users"></i>
+          <span>Пользователи</span>
+        </a>
+        <a href="#settings" class="nav-item" data-module="settings">
+          <i class="fas fa-cogs"></i>
+          <span>Настройки</span>
+        </a>
+        <a href="#backup" class="nav-item" data-module="backup">
+          <i class="fas fa-database"></i>
+          <span>Резервные копии</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="#profile" class="profile-link nav-item" data-module="profile">
+          <i class="fas fa-user-circle"></i>
+          <span>Профиль</span>
+        </a>
+        <a href="#logout" class="logout-link" id="logoutBtn">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Выход</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <h1 class="page-title" id="pageTitle">Главная панель управления</h1>
+        </div>
+        <div class="top-bar-right">
+          <div class="search-box">
+            <input type="text" class="search-input" placeholder="Поиск...">
+            <i class="fas fa-search"></i>
+          </div>
+          <button class="theme-toggle-admin" id="themeToggleAdmin" title="Переключить тему">🌙</button>
+          <div class="notification-wrapper" id="notificationWrapper">
+            <button class="notification-btn" id="notificationBtn" type="button" title="Уведомления">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge hidden" id="notificationBadge">0</span>
+            </button>
+            <div class="notification-dropdown" id="notificationDropdown">
+              <div class="notification-dropdown-header">
+                <span>Уведомления</span>
+                <button type="button" class="notification-clear-btn" id="notificationClearBtn">Очистить всё</button>
+              </div>
+              <div class="notification-dropdown-list" id="notificationDropdownList">
+                <div class="notification-empty">Новых уведомлений нет</div>
+              </div>
+            </div>
+          </div>
+          <div class="user-menu">
+            <span class="user-avatar"><i class="fas fa-user"></i></span>
+            <span class="user-name">Администратор</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Area -->
+      <div class="content-area">
+        <!-- Dashboard Module -->
+        <section class="module active" id="module-dashboard">
+          <div class="dashboard-grid">
+            <div class="stat-card">
+              <div class="stat-icon" style="background: #3b82f6;">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <div class="stat-content">
+                <h3>Страницы</h3>
+                <p class="stat-number">0</p>
+                <span class="stat-change">Пока нет страниц</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon" style="background: #10b981;">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="stat-content">
+                <h3>Пользователи</h3>
+                <p class="stat-number">156</p>
+                <span class="stat-change positive">+12 этот месяц</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon" style="background: #f59e0b;">
+                <i class="fas fa-images"></i>
+              </div>
+              <div class="stat-content">
+                <h3>Файлы</h3>
+                <p class="stat-number">0</p>
+                <span class="stat-change">Пока нет файлов</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon" style="background: #8b5cf6;">
+                <i class="fas fa-eye"></i>
+              </div>
+              <div class="stat-content">
+                <h3>Просмотры</h3>
+                <p class="stat-number">12.5K</p>
+                <span class="stat-change positive">+8.2% от прошлой недели</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="recent-activity">
+            <h2>Недавняя активность</h2>
+            <div class="activity-list" id="activityList">
+              <div class="activity-empty" id="activityEmptyState">Активности пока нет. Здесь будут появляться события по мере работы с панелью.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pages Module -->
+        <section class="module" id="module-pages">
+          <div class="module-header">
+            <h2>Управление страницами</h2>
+            <button class="btn btn-primary" id="newPageBtn">
+              <i class="fas fa-plus"></i> Новая страница
+            </button>
+          </div>
+
+          <div class="filter-bar">
+            <input type="text" class="filter-input" id="pagesSearchInput" placeholder="Поиск страниц...">
+            <select class="filter-select" id="pagesStatusFilter">
+              <option>Все статусы</option>
+              <option>Опубликована</option>
+              <option>Черновик</option>
+              <option>Архив</option>
+            </select>
+          </div>
+
+          <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Название</th>
+                <th>Статус</th>
+                <th>Автор</th>
+                <th>Дата изменения</th>
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tbody id="pagesTableBody">
+              <tr id="pagesEmptyRow">
+                <td colspan="5" class="table-empty">Страниц пока нет. Нажмите «Новая страница», чтобы создать первую.</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </section>
+
+        <!-- Content Editor Module -->
+        <section class="module" id="module-content">
+          <div class="module-header">
+            <h2>Редактор контента</h2>
+          </div>
+
+          <div class="editor-container">
+            <div class="editor-left">
+              <div class="form-group">
+                <label>Заголовок страницы</label>
+                <input type="text" class="form-control" placeholder="Введите заголовок" value="Главная страница">
+              </div>
+
+              <div class="form-group">
+                <label>URL Slug</label>
+                <input type="text" class="form-control" placeholder="главная-страница">
+              </div>
+
+              <div class="form-group">
+                <label>Описание страницы (SEO)</label>
+                <textarea class="form-control" rows="3" placeholder="Краткое описание для поисковых систем"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>Контент</label>
+                <div class="editor-toolbar">
+                  <button class="toolbar-btn" title="Жирный"><i class="fas fa-bold"></i></button>
+                  <button class="toolbar-btn" title="Курсив"><i class="fas fa-italic"></i></button>
+                  <button class="toolbar-btn" title="Подчеркивание"><i class="fas fa-underline"></i></button>
+                  <div class="toolbar-divider"></div>
+                  <button class="toolbar-btn" title="Заголовок"><i class="fas fa-heading"></i></button>
+                  <button class="toolbar-btn" title="Список"><i class="fas fa-list"></i></button>
+                  <button class="toolbar-btn" title="Цитата"><i class="fas fa-quote-left"></i></button>
+                  <div class="toolbar-divider"></div>
+                  <button class="toolbar-btn" title="Ссылка"><i class="fas fa-link"></i></button>
+                  <button class="toolbar-btn" title="Изображение"><i class="fas fa-image"></i></button>
+                  <button class="toolbar-btn" title="Таблица"><i class="fas fa-table"></i></button>
+                </div>
+                <textarea id="contentEditor" class="editor-textarea" placeholder="Введите содержание страницы..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>Теги</label>
+                <input type="text" class="form-control" placeholder="Введите теги, разделяя запятыми">
+              </div>
+            </div>
+
+            <div class="editor-right">
+              <div class="editor-panel">
+                <h3>Опубликовать</h3>
+                <div class="publish-options">
+                  <div class="option">
+                    <label>Статус</label>
+                    <select class="form-control">
+                      <option>Черновик</option>
+                      <option selected>Опубликована</option>
+                      <option>Архив</option>
+                    </select>
+                  </div>
+                  <div class="option">
+                    <label>Видимость</label>
+                    <select class="form-control">
+                      <option selected>Для всех</option>
+                      <option>Только для зарегистрированных</option>
+                      <option>Приватная</option>
+                    </select>
+                  </div>
+                  <button class="btn btn-primary btn-block" id="saveContentBtn">Сохранить</button>
+                  <button class="btn btn-secondary btn-block" id="previewContentBtn">Предпросмотр</button>
+                </div>
+              </div>
+
+              <div class="editor-panel">
+                <h3>Категория</h3>
+                <select class="form-control">
+                  <option>Не выбрана</option>
+                  <option selected>Основное</option>
+                  <option>Услуги</option>
+                  <option>Новости</option>
+                  <option>Блог</option>
+                </select>
+              </div>
+
+              <div class="editor-panel">
+                <h3>Дополнительно</h3>
+                <div class="form-group">
+                  <label class="checkbox">
+                    <input type="checkbox" checked>
+                    <span>Показывать в меню</span>
+                  </label>
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    <span>Требовать пароль</span>
+                  </label>
+                  <label class="checkbox">
+                    <input type="checkbox" checked>
+                    <span>Включить комментарии</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Media Module -->
+        <section class="module" id="module-media">
+          <div class="module-header">
+            <h2>Библиотека медиа</h2>
+            <button class="btn btn-primary" id="uploadBtn">
+              <i class="fas fa-cloud-upload-alt"></i> Загрузить файлы
+            </button>
+          </div>
+
+          <!-- Hidden file input for media upload -->
+          <input type="file" id="mediaInput" multiple accept="image/jpeg,image/png,video/mp4,video/webm,video/ogg,video/quicktime" style="display: none;">
+
+          <div class="media-filter">
+            <input type="text" class="filter-input" placeholder="Поиск файлов...">
+            <select class="filter-select">
+              <option>Все типы</option>
+              <option>Изображения</option>
+              <option>Видео</option>
+            </select>
+            <select class="filter-select">
+              <option>Сортировка: Новые</option>
+              <option>Сортировка: Старые</option>
+              <option>Сортировка: Имя (А-Я)</option>
+              <option>Сортировка: Размер</option>
+            </select>
+          </div>
+
+          <div class="media-grid" id="mediaGrid">
+            <div class="media-empty" id="mediaEmptyState">Файлов пока нет. Нажмите «Загрузить файлы», чтобы добавить первый.</div>
+          </div>
+        </section>
+
+        <!-- Users Module -->
+        <section class="module" id="module-users">
+          <div class="module-header">
+            <h2>Управление пользователями</h2>
+            <button class="btn btn-primary" id="newUserBtn">
+              <i class="fas fa-user-plus"></i> Новый пользователь
+            </button>
+          </div>
+
+          <div class="filter-bar">
+            <input type="text" class="filter-input" id="usersSearchInput" placeholder="Поиск пользователей...">
+            <select class="filter-select" id="usersRoleFilter">
+              <option>Все роли</option>
+              <option>Администратор</option>
+              <option>Редактор</option>
+              <option>Автор</option>
+              <option>Подписчик</option>
+            </select>
+          </div>
+
+          <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Имя</th>
+                <th>Email</th>
+                <th>Роль</th>
+                <th>Статус</th>
+                <th>Присоединился</th>
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody">
+              <tr id="usersEmptyRow">
+                <td colspan="6" class="table-empty">Пользователей пока нет. Нажмите «Новый пользователь», чтобы добавить первого.</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </section>
+
+        <!-- Settings Module -->
+        <section class="module" id="module-settings">
+          <div class="module-header">
+            <h2>Настройки системы</h2>
+          </div>
+
+          <div class="settings-container">
+            <div class="settings-left">
+              <div class="settings-menu">
+                <a href="#" class="settings-item active">Основные</a>
+                <a href="#" class="settings-item">Безопасность</a>
+                <a href="#" class="settings-item">Email</a>
+                <a href="#" class="settings-item">SEO</a>
+                <a href="#" class="settings-item">Производительность</a>
+              </div>
+            </div>
+
+            <div class="settings-right">
+              <div class="settings-panel">
+                <h3>Основные настройки</h3>
+                
+                <div class="form-group">
+                  <label>Название сайта</label>
+                  <input type="text" class="form-control" value="CMS Pro - Мой сайт">
+                </div>
+
+                <div class="form-group">
+                  <label>Слоган</label>
+                  <input type="text" class="form-control" value="Профессиональная система управления контентом">
+                </div>
+
+                <div class="form-group">
+                  <label>Email администратора</label>
+                  <input type="email" class="form-control" value="admin@cms.ru">
+                </div>
+
+                <div class="form-group">
+                  <label>Часовой пояс</label>
+                  <select class="form-control">
+                    <option selected>UTC+03:00 (Москва)</option>
+                    <option>UTC+00:00 (Лондон)</option>
+                    <option>UTC+01:00 (Берлин)</option>
+                    <option>UTC+08:00 (Шанхай)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="checkbox">
+                    <input type="checkbox" checked>
+                    <span>Разрешить регистрацию пользователей</span>
+                  </label>
+                </div>
+
+                <div class="form-group">
+                  <label class="checkbox">
+                    <input type="checkbox" checked>
+                    <span>Требовать утверждение администратора</span>
+                  </label>
+                </div>
+
+                <button class="btn btn-primary">Сохранить изменения</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Backup Module -->
+        <section class="module" id="module-backup">
+          <div class="module-header">
+            <h2>Управление резервными копиями</h2>
+            <button class="btn btn-primary" id="createBackupBtn">
+              <i class="fas fa-plus"></i> Создать резервную копию
+            </button>
+          </div>
+
+          <div class="backup-info">
+            <div class="info-box">
+              <i class="fas fa-info-circle"></i>
+              <p>Система автоматически создает резервные копии каждый день в 00:00. Вы можете создать дополнительную копию в любой момент.</p>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Название</th>
+                <th>Размер</th>
+                <th>Дата создания</th>
+                <th>Статус</th>
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tbody id="backupsTableBody">
+              <tr id="backupsEmptyRow">
+                <td colspan="5" class="table-empty">Резервных копий пока нет. Нажмите «Создать резервную копию», чтобы создать первую.</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </section>
+
+        <!-- Profile Module -->
+        <section class="module" id="module-profile">
+          <div class="module-header">
+            <h2>Профиль</h2>
+          </div>
+
+          <div class="settings-container">
+            <div class="settings-left">
+              <div class="profile-card">
+                <span class="profile-avatar" id="profileAvatarPreview"><i class="fas fa-user"></i></span>
+                <h3 id="profileDisplayName">Администратор</h3>
+                <p id="profileDisplayEmail" class="profile-email">admin@cms.ru</p>
+                <span class="badge badge-info">Администратор</span>
+
+                <div class="profile-stats">
+                  <div class="profile-stat">
+                    <strong>24</strong>
+                    <span>Страниц</span>
+                  </div>
+                  <div class="profile-stat">
+                    <strong>348</strong>
+                    <span>Файлов</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="settings-right">
+              <div class="settings-panel">
+                <h3>Личные данные</h3>
+
+                <div class="form-group">
+                  <label>Имя</label>
+                  <input type="text" class="form-control" id="profileNameInput" value="Администратор">
+                </div>
+
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" class="form-control" id="profileEmailInput" value="admin@cms.ru">
+                </div>
+
+                <div class="form-group">
+                  <label>О себе</label>
+                  <textarea class="form-control" id="profileBioInput" rows="3" placeholder="Расскажите немного о себе"></textarea>
+                </div>
+
+                <button class="btn btn-primary" id="saveProfileBtn">Сохранить профиль</button>
+              </div>
+
+              <div class="settings-panel">
+                <h3>Смена пароля</h3>
+
+                <div class="form-group">
+                  <label>Текущий пароль</label>
+                  <input type="password" class="form-control" id="profileCurrentPassword" placeholder="Введите текущий пароль">
+                </div>
+
+                <div class="form-group">
+                  <label>Новый пароль</label>
+                  <input type="password" class="form-control" id="profileNewPassword" placeholder="Минимум 10 символов" minlength="10">
+                </div>
+
+                <div class="form-group">
+                  <label>Подтверждение нового пароля</label>
+                  <input type="password" class="form-control" id="profileConfirmPassword" placeholder="Повторите новый пароль" minlength="10">
+                </div>
+
+                <button class="btn btn-secondary" id="changePasswordBtn">Изменить пароль</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal for new page -->
+  <div class="modal" id="newPageModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Создать новую страницу</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Название страницы</label>
+          <input type="text" class="form-control" id="newPageTitleInput" placeholder="Введите название">
+        </div>
+        <div class="form-group">
+          <label>Шаблон</label>
+          <select class="form-control">
+            <option>Стандартная страница</option>
+            <option>Главная</option>
+            <option>Портфолио</option>
+            <option>Услуги</option>
+            <option>Блог</option>
+            <option>Контакты</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary">Отменить</button>
+        <button class="btn btn-primary">Создать</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for new user -->
+  <div class="modal" id="newUserModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Новый пользователь</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Имя</label>
+          <input type="text" class="form-control" id="newUserNameInput" placeholder="Введите имя">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control" id="newUserEmailInput" placeholder="user@example.com">
+        </div>
+        <div class="form-group">
+          <label>Роль</label>
+          <select class="form-control" id="newUserRoleSelect">
+            <option>Администратор</option>
+            <option selected>Редактор</option>
+            <option>Автор</option>
+            <option>Подписчик</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary">Отменить</button>
+        <button class="btn btn-primary">Создать</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/admin.js"></script>
+</body>
+</html>
